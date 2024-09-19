@@ -1,3 +1,6 @@
+" Disable compatibility with vi which can cause unexpected issues.
+" set nocompatible
+
 " Turn syntax highlighting on.
 syntax on
 
@@ -18,6 +21,8 @@ set termwinsize=12x0   " Set terminal size
 set splitbelow         " Always split below
 set mouse=a            " Enable mouse drag on window splits
 
+
+" VIM RC
 set nocompatible
 
 filetype off
@@ -29,6 +34,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/plugged')
 
 " Let Vundle manage Vundle
+
 " add plugins here
 
 Plugin 'VundleVim/Vundle.vim'
@@ -39,10 +45,16 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
 
 cal vundle#end()
+
 filetype plugin indent on
 
 " Colors
 colorscheme onedark
 
-" ctrl+p to disable autopair
+" ctrl+p to disable autopair 
 let g:AutoPairsShortcutToggle = '<C-P>'
+
+let mapleader = "n"
+nmap <leader> :NERDTreeFocus<cr>
+let mapleader = "f"
+nmap <leader> :NERDTreeToggle<cr>
