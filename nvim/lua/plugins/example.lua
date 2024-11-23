@@ -9,7 +9,60 @@ return {
       colorscheme = "gruvbox",
     },
   },
-
+  "rcarriga/nvim-notify",
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      -- Setup for nvim-dap
+      local dap = require("dap")
+      -- Example configuration for debugging adapters
+      dap.adapters.lldb = {
+        type = "executable",
+        command = "/usr/bin/lldb-vscode",
+        name = "lldb",
+      }
+      dap.configurations.cpp = {
+        {
+          name = "Launch",
+          type = "lldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          stopOnEntry = false,
+          args = {},
+        },
+      }
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require("dapui").setup()
+      local dap, dapui = require("dap"), require("dapui")
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = function()
+      require("nvim-dap-virtual-text").setup()
+    end,
+  },
   -- change trouble config
   {
     "folke/trouble.nvim",
@@ -103,6 +156,17 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
+    },
+  },
+  { -- LSP Configuration & Plugins
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      -- Automatically install LSPs to stdpath for neovim
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+
+      -- Useful status updates for LSP
+      "j-hui/fidget.nvim",
     },
   },
 }
