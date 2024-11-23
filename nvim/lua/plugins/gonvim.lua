@@ -7,6 +7,18 @@ return {
   },
   config = function()
     require("go").setup()
+
+    -- Configure autocommands for gofmt and goimports on save
+    local group = vim.api.nvim_create_augroup("GoFmt", { clear = true })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = group,
+      pattern = "*.go",
+      callback = function()
+        -- Run both goimports and gofmt
+        vim.cmd("silent! lua vim.lsp.buf.format({ async = false })")
+        vim.cmd("silent! GoImports")
+      end,
+    })
   end,
   event = { "CmdlineEnter" },
   ft = { "go", "gomod" },
