@@ -27,7 +27,7 @@ return {
       lspconfig["ts_ls"].setup({})
       lspconfig["yamlls"].setup({})
       lspconfig["clangd"].setup({})
-
+      lspconfig["helm_ls"].setup({})
       lspconfig["gopls"].setup({
         settings = {
           gopls = {
@@ -65,6 +65,13 @@ return {
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
           vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
           vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+
+          -- Custom key mappings
+          vim.keymap.set("n", "<C-A-Left>", "<C-o>", opts) -- Go back
+          vim.keymap.set("n", "<C-A-Right>", "<C-i>", opts) -- Go forward
+          vim.keymap.set("n", "<C-A-i>", vim.lsp.buf.implementation, opts) -- Go to implementation
+          vim.keymap.set("n", "<C-A-b>", vim.lsp.buf.definition, opts) -- Go to definition
+          vim.keymap.set("n", "<A-S-7>", vim.lsp.buf.references, opts) -- Find usages
         end,
       })
     end,

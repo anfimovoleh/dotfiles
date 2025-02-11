@@ -9,7 +9,6 @@ return {
       colorscheme = "gruvbox",
     },
   },
-  "rcarriga/nvim-notify",
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -37,6 +36,15 @@ return {
     end,
   },
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -62,12 +70,6 @@ return {
     config = function()
       require("nvim-dap-virtual-text").setup()
     end,
-  },
-  -- change trouble config
-  {
-    "folke/trouble.nvim",
-    -- opts will be merged with the parent spec
-    opts = { use_diagnostic_signs = true },
   },
 
   -- override nvim-cmp and add cmp-emoji
@@ -124,13 +126,6 @@ return {
       })
     end,
   },
-
-  -- lualine status bar plugin
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-  },
-
   -- use mini.starter instead of alpha
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
