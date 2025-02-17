@@ -18,6 +18,7 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras" },
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -51,5 +52,3 @@ require("lazy").setup({
     },
   },
 })
-
-require("config.keymaps_toggleterm")

@@ -1,0 +1,18 @@
+  ~/.config/nvim
+   lua
+     config
+     plugins
+     │ 󰢱 example.lua
+     │ 󰢱 gonvim.lua
+     │ 󰢱 lsp.lua
+     │ 󰢱 noice.lua
+     │ 󰢱 telescope.lua
+     │ 󰢱 toggleterm.lua
+     └ 󰢱 trouble.lua
+    LICENSE
+    README.md
+    init.lua
+   󰘦 lazy-lock.json
+   󰘦 lazyvim.json
+    stylua.toml
+   (2 hidden items)

@@ -34,15 +34,15 @@ return {
     auto_close = true, -- Automatically close the list when it's empty
     auto_preview = false, -- Automatically preview the location of the diagnostic. Disabled by default.
     auto_fold = false, -- Automatically fold a file's trouble entries
-    icons = {
-      error = "",
-      warning = "",
-      hint = "",
-      information = "",
-      fold_open = "",
-      fold_closed = "",
-      other = "",
-    },
+    -- icons = {
+    --   error = "",
+    --   warning = "",
+    --   hint = "",
+    --   information = "",
+    --   fold_open = "",
+    --   fold_closed = "",
+    --   other = "",
+    -- },
     use_diagnostic_signs = false, -- Use signs defined in your lsp client
   },
   keys = {
