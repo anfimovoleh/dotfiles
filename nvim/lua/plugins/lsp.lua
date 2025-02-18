@@ -78,9 +78,6 @@ return {
           -- Custom key mappings
           vim.keymap.set("n", "<C-A-Left>", "<C-o>", opts) -- Go back
           vim.keymap.set("n", "<C-A-Right>", "<C-i>", opts) -- Go forward
-          vim.keymap.set("n", "<C-A-i>", vim.lsp.buf.implementation, opts) -- Go to implementation
-          vim.keymap.set("n", "<C-A-b>", vim.lsp.buf.definition, opts) -- Go to definition
-          vim.keymap.set("n", "<A-S-7>", vim.lsp.buf.references, opts) -- Find usages
         end,
       })
     end,
