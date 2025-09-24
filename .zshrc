@@ -117,7 +117,6 @@ alias gitrmmerged='git branch --merged | egrep -v "(^\*|main|master)" | xargs gi
 compdef k=kubectl
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export GEMINI_API_KEY="AIzaSyAk5_t45FYHfPHVi0w2Yrqz7FHAJQ3lTxM"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
