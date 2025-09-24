@@ -104,3 +104,28 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export TERM=xterm-kitty
 export SNACKS_IMAGE_VIEWER=kitty
+
+
+# Enable kubectl autocompletion
+source <(kubectl completion zsh)
+
+# Create an alias for kubectl
+alias k=kubectl
+# Git remove merged branches
+alias gitrmmerged='git branch --merged | egrep -v "(^\*|main|master)" | xargs git branch -d'
+# Enable autocompletion for the alias 'k'
+compdef k=kubectl
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export GEMINI_API_KEY="AIzaSyAk5_t45FYHfPHVi0w2Yrqz7FHAJQ3lTxM"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/home/oleh/.bun/_bun" ] && source "/home/oleh/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

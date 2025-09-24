@@ -1,10 +1,11 @@
 return {
+  { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
   {
     "ray-x/go.nvim",
     dependencies = { -- optional packages
-      "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
+      "neovim/nvim-lspconfig",
+      "ray-x/guihua.lua",
     },
     config = function()
       require("go").setup({
